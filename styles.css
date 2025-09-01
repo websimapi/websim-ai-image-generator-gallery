@@ -52,3 +52,25 @@ body {
     transform: translateY(-1px);
 }
 
+.reference-upload {
+    position: relative;
+    overflow: hidden;
+}
+
+.reference-preview {
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.reference-preview:hover {
+    border-color: #3b82f6;
+    background-color: #f8fafc;
+}
+
+.reference-preview.has-image {
+    border-style: solid;
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+}
