@@ -15,8 +15,8 @@ const GenerateTab = React.memo(({
   getUserImages,
   setSelectedImage
 }) => /* @__PURE__ */ jsxDEV("div", { className: "max-w-2xl mx-auto", children: [
-  /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg shadow-sm p-6", children: [
-    /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-semibold mb-4", children: "Generate New Image" }, void 0, false, {
+  /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg shadow-sm mobile-card p-4 md:p-6", children: [
+    /* @__PURE__ */ jsxDEV("h2", { className: "text-xl md:text-2xl font-semibold mb-4", children: "Generate New Image" }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 20,
       columnNumber: 13
@@ -90,7 +90,7 @@ const GenerateTab = React.memo(({
           value: prompt,
           onChange: (e) => setPrompt(e.target.value),
           placeholder: referenceImage ? "Describe how you want to modify the reference image..." : "Describe the image you want to generate...",
-          className: "w-full h-32 border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+          className: "w-full h-32 border border-gray-300 rounded-lg mobile-input resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
           disabled: isGenerating
         },
         "prompt-textarea",
@@ -101,13 +101,13 @@ const GenerateTab = React.memo(({
           columnNumber: 17
         }
       ),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex space-x-3", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex flex-col sm:flex-row gap-3", children: [
         /* @__PURE__ */ jsxDEV(
           "button",
           {
             onClick: generateImage,
             disabled: isGenerating || !prompt.trim(),
-            className: "flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors",
+            className: "flex-1 bg-blue-600 text-white mobile-button px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors touch-friendly",
             children: isGenerating ? "Generating... (10s)" : referenceImage ? "Generate from Reference" : "Generate Image"
           },
           void 0,
@@ -123,7 +123,7 @@ const GenerateTab = React.memo(({
           {
             onClick: () => fileInputRef.current?.click(),
             disabled: isUploading || isGenerating,
-            className: "px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors disabled:opacity-50",
+            className: "mobile-button bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors disabled:opacity-50 touch-friendly",
             title: "Upload reference image",
             children: /* @__PURE__ */ jsxDEV("span", { className: "text-xl", children: isUploading ? "\u23F3" : "\u{1F4C1}" }, void 0, false, {
               fileName: "<stdin>",
@@ -171,13 +171,13 @@ const GenerateTab = React.memo(({
     lineNumber: 19,
     columnNumber: 9
   }),
-  currentUser && /* @__PURE__ */ jsxDEV("div", { className: "mt-8", children: [
-    /* @__PURE__ */ jsxDEV("h3", { className: "text-xl font-semibold mb-4", children: "Your Images" }, void 0, false, {
+  currentUser && /* @__PURE__ */ jsxDEV("div", { className: "mt-6 md:mt-8", children: [
+    /* @__PURE__ */ jsxDEV("h3", { className: "text-lg md:text-xl font-semibold mb-4", children: "Your Images" }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 84,
       columnNumber: 17
     }),
-    /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4", children: getUserImages(currentUser.id).map((image) => /* @__PURE__ */ jsxDEV(
+    /* @__PURE__ */ jsxDEV("div", { className: "mobile-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4", children: getUserImages(currentUser.id).map((image) => /* @__PURE__ */ jsxDEV(
       ImageCard,
       {
         image,

@@ -74,3 +74,60 @@ body {
     border-color: #3b82f6;
     background-color: #eff6ff;
 }
+
+/* Mobile-first responsive improvements */
+@media (max-width: 768px) {
+    .mobile-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .mobile-nav button {
+        flex: 1;
+        min-width: 100px;
+        padding: 0.75rem 1rem;
+        text-align: center;
+    }
+    
+    .mobile-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+    
+    .mobile-modal {
+        margin: 1rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .mobile-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 1rem;
+    }
+    
+    .mobile-button {
+        min-height: 48px; /* Better touch target */
+        font-size: 1rem;
+    }
+    
+    .mobile-card {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+}
+
+.touch-friendly {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (max-width: 480px) {
+    .mobile-padding {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}

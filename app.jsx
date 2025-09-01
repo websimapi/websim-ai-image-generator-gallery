@@ -180,7 +180,7 @@ function App() {
     }
   };
   if (!currentUser) {
-    return /* @__PURE__ */ jsxDEV("div", { className: "min-h-screen flex items-center justify-center", children: /* @__PURE__ */ jsxDEV("div", { className: "loading-shimmer w-32 h-8 rounded" }, void 0, false, {
+    return /* @__PURE__ */ jsxDEV("div", { className: "min-h-screen flex items-center justify-center mobile-padding", children: /* @__PURE__ */ jsxDEV("div", { className: "loading-shimmer w-32 h-8 rounded" }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 223,
       columnNumber: 17
@@ -196,13 +196,13 @@ function App() {
       lineNumber: 230,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ jsxDEV("header", { className: "bg-white shadow-sm border-b", children: /* @__PURE__ */ jsxDEV("div", { className: "max-w-6xl mx-auto px-4 py-4", children: [
-      /* @__PURE__ */ jsxDEV("h1", { className: "text-3xl font-semibold", children: "AI Image Generator" }, void 0, false, {
+    /* @__PURE__ */ jsxDEV("header", { className: "bg-white shadow-sm border-b sticky top-0 z-40", children: /* @__PURE__ */ jsxDEV("div", { className: "max-w-6xl mx-auto mobile-padding py-4", children: [
+      /* @__PURE__ */ jsxDEV("h1", { className: "text-2xl md:text-3xl font-semibold", children: "AI Image Generator" }, void 0, false, {
         fileName: "<stdin>",
         lineNumber: 234,
         columnNumber: 21
       }, this),
-      /* @__PURE__ */ jsxDEV("nav", { className: "mt-4", children: /* @__PURE__ */ jsxDEV("div", { className: "flex space-x-6", children: [
+      /* @__PURE__ */ jsxDEV("nav", { className: "mt-4", children: /* @__PURE__ */ jsxDEV("div", { className: "flex mobile-nav", children: [
         { key: "generate", label: "Generate" },
         { key: "gallery", label: "Gallery" },
         { key: "leaderboard", label: "Leaderboard" }
@@ -210,7 +210,7 @@ function App() {
         "button",
         {
           onClick: () => setActiveTab(tab.key),
-          className: `pb-2 border-b-2 transition-colors ${activeTab === tab.key ? "border-blue-600 text-blue-600" : "border-transparent text-gray-600 hover:text-gray-800"}`,
+          className: `mobile-button pb-2 border-b-2 transition-colors touch-friendly ${activeTab === tab.key ? "border-blue-600 text-blue-600 font-medium" : "border-transparent text-gray-600 hover:text-gray-800"}`,
           children: tab.label
         },
         tab.key,
@@ -239,7 +239,7 @@ function App() {
       lineNumber: 232,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ jsxDEV("main", { className: "max-w-6xl mx-auto px-4 py-8", children: [
+    /* @__PURE__ */ jsxDEV("main", { className: "max-w-6xl mx-auto mobile-padding py-4 md:py-8 pb-safe", children: [
       activeTab === "generate" && /* @__PURE__ */ jsxDEV(
         GenerateTab,
         {

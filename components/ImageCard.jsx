@@ -1,6 +1,6 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-const ImageCard = ({ image, showFork = true, showVersions = false, currentUser, setSelectedImage }) => /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg overflow-hidden shadow-sm image-hover", children: [
+const ImageCard = ({ image, showFork = true, showVersions = false, currentUser, setSelectedImage }) => /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg overflow-hidden shadow-sm mobile-card image-hover", children: [
   /* @__PURE__ */ jsxDEV("div", { className: "aspect-square relative", children: [
     /* @__PURE__ */ jsxDEV(
       "img",
@@ -35,8 +35,8 @@ const ImageCard = ({ image, showFork = true, showVersions = false, currentUser, 
     lineNumber: 5,
     columnNumber: 9
   }),
-  /* @__PURE__ */ jsxDEV("div", { className: "p-4", children: [
-    /* @__PURE__ */ jsxDEV("p", { className: "text-sm text-gray-600 mb-2 line-clamp-2", children: image.data.prompt }, void 0, false, {
+  /* @__PURE__ */ jsxDEV("div", { className: "p-3 md:p-4", children: [
+    /* @__PURE__ */ jsxDEV("p", { className: "text-sm text-gray-600 mb-3 line-clamp-2 leading-relaxed", children: image.data.prompt }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 21,
       columnNumber: 13
@@ -58,7 +58,7 @@ const ImageCard = ({ image, showFork = true, showVersions = false, currentUser, 
             columnNumber: 21
           }
         ),
-        /* @__PURE__ */ jsxDEV("span", { className: "text-xs text-gray-500 font-mono", children: image.userId }, void 0, false, {
+        /* @__PURE__ */ jsxDEV("span", { className: "text-xs text-gray-500 font-mono truncate max-w-20", children: image.userId }, void 0, false, {
           fileName: "<stdin>",
           lineNumber: 29,
           columnNumber: 21
@@ -72,7 +72,7 @@ const ImageCard = ({ image, showFork = true, showVersions = false, currentUser, 
         "button",
         {
           onClick: () => setSelectedImage(image),
-          className: "fork-button text-white text-xs px-3 py-1 rounded",
+          className: "fork-button text-white text-xs px-3 py-2 rounded touch-friendly",
           children: "Fork"
         },
         void 0,
