@@ -780,7 +780,7 @@ function App() {
                 COALESCE(jsonb_array_length(ug.public_gallery), 0) as public_count,
                 ug.last_sync as last_activity
             FROM public.user_gallery ug
-            JOIN public.user u ON ug.id = u.id
+            JOIN public.user u ON ug.id::uuid = u.id
             ORDER BY (COALESCE(jsonb_array_length(ug.generated_images), 0) + COALESCE(jsonb_array_length(ug.forked_images), 0)) DESC
         `));
     const leaderboard = leaderboardData?.map((entry, idx) => ({
