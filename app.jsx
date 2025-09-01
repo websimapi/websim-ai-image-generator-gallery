@@ -365,6 +365,129 @@ const GenerateTab = React.memo(({
   lineNumber: 136,
   columnNumber: 5
 }));
+const ForkModal = ({ selectedImage, setSelectedImage, forkPrompt, setForkPrompt, forkImage, isGenerating }) => {
+  if (!selectedImage) return null;
+  return /* @__PURE__ */ jsxDEV("div", { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50", children: /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg p-6 max-w-2xl w-full mx-4", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center mb-4", children: [
+      /* @__PURE__ */ jsxDEV("h3", { className: "text-xl font-semibold", children: "Fork Image" }, void 0, false, {
+        fileName: "<stdin>",
+        lineNumber: 227,
+        columnNumber: 21
+      }),
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          onClick: () => setSelectedImage(null),
+          className: "text-gray-500 hover:text-gray-700 text-xl",
+          children: "\xD7"
+        },
+        void 0,
+        false,
+        {
+          fileName: "<stdin>",
+          lineNumber: 228,
+          columnNumber: 21
+        }
+      )
+    ] }, void 0, true, {
+      fileName: "<stdin>",
+      lineNumber: 226,
+      columnNumber: 17
+    }),
+    /* @__PURE__ */ jsxDEV("div", { className: "mb-4", children: [
+      /* @__PURE__ */ jsxDEV(
+        "img",
+        {
+          src: selectedImage.data.url,
+          alt: "Original",
+          className: "w-full h-48 object-cover rounded-lg"
+        },
+        void 0,
+        false,
+        {
+          fileName: "<stdin>",
+          lineNumber: 237,
+          columnNumber: 21
+        }
+      ),
+      /* @__PURE__ */ jsxDEV("p", { className: "text-sm text-gray-600 mt-2", children: [
+        'Original: "',
+        selectedImage.data.prompt,
+        '"'
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 242,
+        columnNumber: 21
+      })
+    ] }, void 0, true, {
+      fileName: "<stdin>",
+      lineNumber: 236,
+      columnNumber: 17
+    }),
+    /* @__PURE__ */ jsxDEV(
+      "textarea",
+      {
+        value: forkPrompt,
+        onChange: (e) => setForkPrompt(e.target.value),
+        placeholder: "Describe how you want to modify this image...",
+        className: "w-full h-24 border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4",
+        disabled: isGenerating
+      },
+      void 0,
+      false,
+      {
+        fileName: "<stdin>",
+        lineNumber: 247,
+        columnNumber: 17
+      }
+    ),
+    /* @__PURE__ */ jsxDEV("div", { className: "flex space-x-3", children: [
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          onClick: () => setSelectedImage(null),
+          className: "flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors",
+          children: "Cancel"
+        },
+        void 0,
+        false,
+        {
+          fileName: "<stdin>",
+          lineNumber: 256,
+          columnNumber: 21
+        }
+      ),
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          onClick: () => forkImage(selectedImage, selectedImage.userId),
+          disabled: isGenerating || !forkPrompt.trim(),
+          className: "flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-purple-700 transition-colors",
+          children: isGenerating ? "Forking..." : "Fork Image"
+        },
+        void 0,
+        false,
+        {
+          fileName: "<stdin>",
+          lineNumber: 262,
+          columnNumber: 21
+        }
+      )
+    ] }, void 0, true, {
+      fileName: "<stdin>",
+      lineNumber: 255,
+      columnNumber: 17
+    })
+  ] }, void 0, true, {
+    fileName: "<stdin>",
+    lineNumber: 225,
+    columnNumber: 13
+  }) }, void 0, false, {
+    fileName: "<stdin>",
+    lineNumber: 224,
+    columnNumber: 9
+  });
+};
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [prompt, setPrompt] = useState("");
@@ -606,11 +729,11 @@ function App() {
     syncStatus === "error" && "\u26A0 Sync Error"
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 522,
+    lineNumber: 577,
     columnNumber: 13
   }, this) }, void 0, false, {
     fileName: "<stdin>",
-    lineNumber: 521,
+    lineNumber: 576,
     columnNumber: 9
   }, this);
   const GalleryTab = () => {
@@ -618,7 +741,7 @@ function App() {
     return /* @__PURE__ */ jsxDEV("div", { className: "max-w-6xl mx-auto", children: [
       /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-semibold mb-6", children: "Public Gallery" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 539,
+        lineNumber: 594,
         columnNumber: 17
       }, this),
       /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4", children: publicImages.map((image) => /* @__PURE__ */ jsxDEV(
@@ -632,18 +755,18 @@ function App() {
         false,
         {
           fileName: "<stdin>",
-          lineNumber: 542,
+          lineNumber: 597,
           columnNumber: 25
         },
         this
       )) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 540,
+        lineNumber: 595,
         columnNumber: 17
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 538,
+      lineNumber: 593,
       columnNumber: 13
     }, this);
   };
@@ -669,61 +792,61 @@ function App() {
       return /* @__PURE__ */ jsxDEV("div", { className: "max-w-4xl mx-auto", children: [
         /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-semibold mb-6", children: "Leaderboard" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 577,
+          lineNumber: 632,
           columnNumber: 21
         }, this),
         /* @__PURE__ */ jsxDEV("div", { className: "loading-shimmer w-full h-64 rounded-lg" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 578,
+          lineNumber: 633,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 576,
+        lineNumber: 631,
         columnNumber: 17
       }, this);
     }
     return /* @__PURE__ */ jsxDEV("div", { className: "max-w-4xl mx-auto", children: [
       /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-semibold mb-6", children: "Leaderboard" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 585,
+        lineNumber: 640,
         columnNumber: 17
       }, this),
       /* @__PURE__ */ jsxDEV("div", { className: "bg-white rounded-lg shadow-sm overflow-hidden", children: [
         /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-6 gap-4 p-4 bg-gray-50 font-medium text-sm", children: [
           /* @__PURE__ */ jsxDEV("div", { children: "Rank" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 588,
+            lineNumber: 643,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: "User" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 589,
+            lineNumber: 644,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: "Generated" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 590,
+            lineNumber: 645,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: "Forked" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 591,
+            lineNumber: 646,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: "Public" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 592,
+            lineNumber: 647,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: "Last Activity" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 593,
+            lineNumber: 648,
             columnNumber: 25
           }, this)
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 587,
+          lineNumber: 642,
           columnNumber: 21
         }, this),
         leaderboard.map((entry) => /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-6 gap-4 p-4 border-t border-gray-100 hover:bg-gray-50", children: [
@@ -732,7 +855,7 @@ function App() {
             entry.rank
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 597,
+            lineNumber: 652,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { className: "flex items-center space-x-2", children: [
@@ -747,78 +870,78 @@ function App() {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 599,
+                lineNumber: 654,
                 columnNumber: 33
               },
               this
             ),
             /* @__PURE__ */ jsxDEV("span", { className: "font-medium text-sm", children: entry.username }, void 0, false, {
               fileName: "<stdin>",
-              lineNumber: 604,
+              lineNumber: 659,
               columnNumber: 33
             }, this)
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 598,
+            lineNumber: 653,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: entry.generated_count }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 606,
+            lineNumber: 661,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: entry.forked_count }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 607,
+            lineNumber: 662,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { children: entry.public_count }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 608,
+            lineNumber: 663,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { className: "text-sm text-gray-500", children: entry.last_activity ? new Date(entry.last_activity).toLocaleDateString() : "Never" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 609,
+            lineNumber: 664,
             columnNumber: 29
           }, this)
         ] }, entry.user_id, true, {
           fileName: "<stdin>",
-          lineNumber: 596,
+          lineNumber: 651,
           columnNumber: 25
         }, this))
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 586,
+        lineNumber: 641,
         columnNumber: 17
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 584,
+      lineNumber: 639,
       columnNumber: 13
     }, this);
   };
   if (!currentUser) {
     return /* @__PURE__ */ jsxDEV("div", { className: "min-h-screen flex items-center justify-center", children: /* @__PURE__ */ jsxDEV("div", { className: "loading-shimmer w-32 h-8 rounded" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 622,
+      lineNumber: 677,
       columnNumber: 17
     }, this) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 621,
+      lineNumber: 676,
       columnNumber: 13
     }, this);
   }
   return /* @__PURE__ */ jsxDEV("div", { className: "min-h-screen bg-gray-50", children: [
     /* @__PURE__ */ jsxDEV(SyncIndicator, {}, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 629,
+      lineNumber: 684,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ jsxDEV("header", { className: "bg-white shadow-sm border-b", children: /* @__PURE__ */ jsxDEV("div", { className: "max-w-6xl mx-auto px-4 py-4", children: [
       /* @__PURE__ */ jsxDEV("h1", { className: "text-3xl font-semibold", children: "AI Image Generator" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 633,
+        lineNumber: 688,
         columnNumber: 21
       }, this),
       /* @__PURE__ */ jsxDEV("nav", { className: "mt-4", children: /* @__PURE__ */ jsxDEV("div", { className: "flex space-x-6", children: [
@@ -836,26 +959,26 @@ function App() {
         false,
         {
           fileName: "<stdin>",
-          lineNumber: 641,
+          lineNumber: 696,
           columnNumber: 33
         },
         this
       )) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 635,
+        lineNumber: 690,
         columnNumber: 25
       }, this) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 634,
+        lineNumber: 689,
         columnNumber: 21
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 632,
+      lineNumber: 687,
       columnNumber: 17
     }, this) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 631,
+      lineNumber: 686,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ jsxDEV("main", { className: "max-w-6xl mx-auto px-4 py-8", children: [
@@ -879,40 +1002,54 @@ function App() {
         false,
         {
           fileName: "<stdin>",
-          lineNumber: 660,
+          lineNumber: 715,
           columnNumber: 21
         },
         this
       ),
       activeTab === "gallery" && /* @__PURE__ */ jsxDEV(GalleryTab, {}, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 675,
+        lineNumber: 730,
         columnNumber: 45
       }, this),
       activeTab === "leaderboard" && /* @__PURE__ */ jsxDEV(LeaderboardTab, {}, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 676,
+        lineNumber: 731,
         columnNumber: 49
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 658,
+      lineNumber: 713,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ jsxDEV(ForkModal, {}, void 0, false, {
-      fileName: "<stdin>",
-      lineNumber: 679,
-      columnNumber: 13
-    }, this)
+    /* @__PURE__ */ jsxDEV(
+      ForkModal,
+      {
+        selectedImage,
+        setSelectedImage,
+        forkPrompt,
+        setForkPrompt,
+        forkImage,
+        isGenerating
+      },
+      void 0,
+      false,
+      {
+        fileName: "<stdin>",
+        lineNumber: 734,
+        columnNumber: 13
+      },
+      this
+    )
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 628,
+    lineNumber: 683,
     columnNumber: 9
   }, this);
 }
 const root = createRoot(document.getElementById("root"));
 root.render(/* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
   fileName: "<stdin>",
-  lineNumber: 685,
+  lineNumber: 747,
   columnNumber: 13
 }));
