@@ -1,0 +1,30 @@
+{
+  "database": {
+    "schema": {
+      "user_gallery": {
+        "id": {
+          "type": "text",
+          "description": "User ID as primary key - each user has exactly one row"
+        },
+        "generated_images": {
+          "type": "jsonb",
+          "description": "Blockchain-like JSON array of generated images with full history"
+        },
+        "forked_images": {
+          "type": "jsonb", 
+          "description": "Blockchain-like JSON array of forked images with version history"
+        },
+        "public_gallery": {
+          "type": "jsonb",
+          "description": "Array of image IDs that user has made public"
+        },
+        "last_sync": {
+          "type": "timestamptz",
+          "description": "Last sync timestamp for conflict resolution"
+        }
+      }
+    },
+    "instructions": "Each user has exactly one row. All image data is stored in blockchain-like JSON structures where each edit appends a new entry with full history. Use timestamps for conflict resolution between database and localStorage."
+  }
+}
+
